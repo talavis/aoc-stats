@@ -1,0 +1,26 @@
+export function updateEntry (state, payload) {
+  state.entry = payload;
+}
+
+
+export function updateEntryFields (state, payload) {
+  let key = '';
+  for (key in payload) {
+    state.entry[key] = payload[key];
+  }
+}
+
+
+export function updateEntryList (state, payload) {
+  state.entryList = payload;
+}
+
+
+export function resetEntry (state, payload) {
+  state.entry = {};
+}
+
+
+export function resetEntries (state, payload) {
+  state.entryList = {};
+}
