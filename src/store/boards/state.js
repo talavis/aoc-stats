@@ -2,6 +2,8 @@ export default function () {
   return {
     boards: [],
     data: {},
-    currentBoard: ''
+    currentBoard: '',
+    currentYear: 2020,
+    settingsVisible: false
   }
 }

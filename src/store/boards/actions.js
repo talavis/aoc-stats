@@ -14,8 +14,8 @@ export function updateBoard (context, data) {
   })
 }
 
-export function setCurrent (context, boardId) {
-  context.commit('SET_CURRENT', boardId)
+export function setCurrentBoard (context, boardId) {
+  context.commit('SET_CURRENT_BOARD', boardId)
 }
 
 export function addBoard (context, boardId) {
@@ -24,4 +24,8 @@ export function addBoard (context, boardId) {
 
 export function deleteBoard (context, boardId) {
   context.commit('DELETE_BOARD', boardId)
+}
+
+export function showSettings (context, visible) {
+  context.commit('SET_SETTINGS_VISIBLE', visible)
 }

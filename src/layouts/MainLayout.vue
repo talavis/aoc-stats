@@ -16,6 +16,7 @@
                     label="Leaderboard" />
           <q-btn flat round icon="cached" />
         </div>
+        <q-btn flat round icon="settings" @click="settingsVisible=true"/>
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -36,15 +37,24 @@ export default {
     },
     currentBoard: {
       get () {
-        return this.$store.state.boards.current
+        return this.$store.state.boards.currentBoard
       },
       set (newBoard) {
-        this.$store.dispatch('boards/setCurrent', newBoard)
+        this.$store.dispatch('boards/setCurrentBoard', newBoard)
+      }
+    },
+    settingsVisible: {
+      get () {
+        return this.$store.state.boards.settingsVisible
+      },
+      set (isVisible) {
+        this.$store.dispatch('boards/showSettings', isVisible)
       }
     }
   },
   data () {
     return {
+      settingVisible: false,
       currentYear: 2020
     }
   }

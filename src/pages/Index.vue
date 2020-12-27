@@ -1,18 +1,19 @@
 <template>
 <q-page class="flex flex-center">
-  <q-select filled v-model="currentBoard" :options="Object.keys(boards)" label="Leaderboard" />
-  
+  <q-table>
+  </q-table>
+  <settings-dialog v-model="settingsVisible"/>
 </q-page>
 </template>
 
 <script>
 import SettingsDialog from 'components/SettingsDialog.vue'
-  
+
 export default {
   name: 'PageIndex',
-  components: {settings: SettingsDialog}
-  data: {
-  }
+  components: {
+    'settings-dialog': SettingsDialog
+  },
   computed: {
     boards: {
       get () {
@@ -25,6 +26,14 @@ export default {
       },
       set (newBoard) {
         this.$store.dispatch('boards/setCurrent', newBoard)
+      }
+    },
+    settingsVisible: {
+      get () {
+        return this.$store.state.boards.settingsVisible
+      },
+      set (isVisible) {
+        this.$store.dispatch('boards/showSettings', isVisible)
       }
     }
   }
